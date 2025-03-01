@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom'; 
 
 const Home = () => {
   const [scrollY, setScrollY] = useState(0);
-  
+  const navigate = useNavigate(); 
   // Handle scroll event for parallax effects
   useEffect(() => {
     const handleScroll = () => {
@@ -11,7 +12,15 @@ const Home = () => {
     };
     
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    
+    // Add overflow hidden to body to prevent horizontal scrolling
+    document.body.style.overflowX = 'hidden';
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      // Clean up the style when component unmounts
+      document.body.style.overflowX = '';
+    };
   }, []);
 
   // Animation variants
@@ -53,14 +62,14 @@ const Home = () => {
   };
 
   return (
-    <div className="overflow-x-hidden w-full min-h-screen flex flex-col bg-slate-50 font-sans text-slate-800">
+    <div className="w-full min-h-screen flex flex-col bg-slate-50 font-sans text-slate-800 overflow-hidden">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white shadow-sm backdrop-blur-md bg-opacity-80 w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <img 
-                src="/logo.png" 
+                src="./src/assets/pii-logo-pii-letter-pii-letter-logo-design-initials-pii-logo-linked-with-circle-and-uppercase-monogram-logo-pii-typography-for-technology-business-and-real-estate-brand-vector.jpg" 
                 alt="PII Detection Logo" 
                 className="h-10 w-auto mr-3 transition-transform duration-300 hover:scale-110"
               />
@@ -69,10 +78,10 @@ const Home = () => {
               </span>
             </div>
             <div className="flex gap-4">
-              <button className="px-4 py-2 rounded-lg border border-indigo-500 text-indigo-500 font-medium transition-all duration-300 hover:bg-indigo-500 hover:text-white hover:shadow-md hover:-translate-y-1 overflow-hidden relative after:absolute after:w-full after:h-full after:top-0 after:left-[-100%] after:bg-gradient-to-r after:from-transparent after:via-white/20 after:to-transparent after:transition-all after:duration-500 hover:after:left-[100%]">
+              <button onClick={() => navigate('/login')} className="px-4 py-2 rounded-lg border border-indigo-500 text-indigo-500 font-medium transition-all duration-300 hover:bg-indigo-500 hover:text-white hover:shadow-md hover:-translate-y-1 overflow-hidden relative after:absolute after:w-full after:h-full after:top-0 after:left-[-100%] after:bg-gradient-to-r after:from-transparent after:via-white/20 after:to-transparent after:transition-all after:duration-500 hover:after:left-[100%]">
                 Login
               </button>
-              <button className="px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-500 to-indigo-600 text-white font-medium shadow-md shadow-indigo-500/20 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/30 hover:-translate-y-1 overflow-hidden relative after:absolute after:w-full after:h-full after:top-0 after:left-[-100%] after:bg-gradient-to-r after:from-transparent after:via-white/20 after:to-transparent after:transition-all after:duration-500 hover:after:left-[100%]">
+              <button onClick={() => navigate('/signup')} className="px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-500 to-indigo-600 text-white font-medium shadow-md shadow-indigo-500/20 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/30 hover:-translate-y-1 overflow-hidden relative after:absolute after:w-full after:h-full after:top-0 after:left-[-100%] after:bg-gradient-to-r after:from-transparent after:via-white/20 after:to-transparent after:transition-all after:duration-500 hover:after:left-[100%]">
                 Sign Up
               </button>
             </div>
@@ -82,10 +91,10 @@ const Home = () => {
 
       {/* Hero Section */}
       <section 
-        className="relative py-32 overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100 w-full"
+        className="relative py-32 bg-gradient-to-br from-slate-50 to-slate-100 w-full"
         style={{ backgroundPosition: `0 ${scrollY * 0.1}px` }}
       >
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-10 overflow-hidden">
           <div className="absolute h-96 w-96 rounded-full bg-gradient-to-r from-indigo-500/30 to-emerald-500/30 blur-3xl -top-20 -left-20 animate-blob"></div>
           <div className="absolute h-96 w-96 rounded-full bg-gradient-to-r from-indigo-500/30 to-purple-500/30 blur-3xl top-40 right-20 animate-blob animation-delay-2000"></div>
           <div className="absolute h-96 w-96 rounded-full bg-gradient-to-r from-emerald-500/30 to-indigo-500/30 blur-3xl bottom-10 left-40 animate-blob animation-delay-4000"></div>
@@ -286,5 +295,17 @@ const Home = () => {
     </div>
   );
 };
+
+// Add global styles to index.css or App.css
+// These can help prevent overflow issues
+/*
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+*/
 
 export default Home;
