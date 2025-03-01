@@ -33,13 +33,11 @@ npm start
 ```
 
 🔒 Security & Compliance
-
 ✅ End-to-End Encryption: Ensures secure document handling.
 ✅ Access Control: Restricts unauthorized data exposure.
 ✅ Regulatory Compliance: Aligns with GDPR, CCPA, and ISO 27001.
 
 🎨 UI Dashboards
-
 👤 User Dashboard
 ✅ Upload Files for scanning.
 ✅ View Risk Score with a 1-10 scale.
@@ -47,7 +45,6 @@ npm start
 ✅ Logs Section: Tracks past uploads & risk levels.
 
 🛡️ Admin Dashboard
-
 ✅ Review Detected PII across multiple users.
 ✅ Monitor Audit Logs for compliance.
 ✅ Set Security Policies for document handling.
