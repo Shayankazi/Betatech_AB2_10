@@ -32,19 +32,19 @@ npm install
 npm start
 ```
 
-🔒 Security & Compliance
- ✅ End-to-End Encryption: Ensures secure document handling.
- ✅ Access Control: Restricts unauthorized data exposure.
- ✅ Regulatory Compliance: Aligns with GDPR, CCPA, and ISO 27001.
+🔒 Security & Compliance <br>
+✅ End-to-End Encryption: Ensures secure document handling.<br>
+✅ Access Control: Restricts unauthorized data exposure.<br> 
+✅ Regulatory Compliance: Aligns with GDPR, CCPA, and ISO 27001.<br> 
 
-🎨 UI Dashboards
-👤 User Dashboard
-✅ Upload Files for scanning.
-✅ View Risk Score with a 1-10 scale.
-✅ Real-time Alerts 🚨 for sensitive documents.
-✅ Logs Section: Tracks past uploads & risk levels.
+🎨 UI Dashboards<br>
+👤 User Dashboard<br>
+✅ Upload Files for scanning.<br>
+✅ View Risk Score with a 1-10 scale.<br>
+✅ Real-time Alerts 🚨 for sensitive documents.<br>
+✅ Logs Section: Tracks past uploads & risk levels.<br>
 
-🛡️ Admin Dashboard
-✅ Review Detected PII across multiple users.
-✅ Monitor Audit Logs for compliance.
-✅ Set Security Policies for document handling.
+🛡️ Admin Dashboard<br>
+✅ Review Detected PII across multiple users.<br>
+✅ Monitor Audit Logs for compliance.<br>
+✅ Set Security Policies for document handling.<br>
