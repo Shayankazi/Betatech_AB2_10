@@ -114,7 +114,7 @@ Want to contribute? Feel free to fork the repo and submit a PR! 🎯
 ---
 ## **📞 Contact**
 📧 Email: **shayankazi147@gmail.com**  
-🔗 GitHub: **https://github.com/Shayankazi/pii-detection**
+🔗 GitHub: **https://github.com/Shayankazi/Betatech_AB2_10**
 
 🚀 *Built for Hackathon 2025 - Protecting Privacy with AI!* 🔥
 
