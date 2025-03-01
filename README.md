@@ -25,10 +25,12 @@ The **PII Detection System** is a smart, AI-driven solution designed to detect a
 ```sh
 git clone https://github.com/your-repo/pii-detection-system.git
 cd pii-detection-systemm
-
+```
 2️⃣ Install dependencies & start the frontend
+```sh
 npm install  
 npm start
+```
 
 🔒 Security & Compliance
 ✅ End-to-End Encryption: Ensures secure document handling.
