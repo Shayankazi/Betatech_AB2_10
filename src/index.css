@@ -68,3 +68,30 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+@keyframes blob-animation {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(20px, -15px) scale(1.05); }
+  50% { transform: translate(-15px, 10px) scale(0.95); }
+  75% { transform: translate(15px, 15px) scale(1.05); }
+}
+
+.animate-blob {
+  animation: blob-animation 20s infinite ease-in-out;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
