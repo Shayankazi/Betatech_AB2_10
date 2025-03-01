@@ -1,21 +1,16 @@
-import Home from "./Component/Home_page/home";
-import Aboutus from "./Component/About_us/aboutus";
-import Contactus from "./Component/Contact_us/contact";
-import DashboardUser from "./Component/Dashboard/dashUser";
-import DashboardAdmin from "./Component/Dashboard/dashAdmin";
-import LoginUser from "./Component/login/loginUser";
-import LoginAdmin from "./Component/login/loginAdmin"
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './Components/Home';
+// Import other components as needed
 
 function App() {
   return (
-    <>
-      <Home />
-      <Aboutus />
-      <Contactus />
-      <DashboardUser />
-      <DashboardAdmin />
-      <LoginUser />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/* Add other routes as needed */}
+      </Routes>
+    </Router>
   );
 }
 
