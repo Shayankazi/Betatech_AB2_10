@@ -10,7 +10,7 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <img 
-              src="/logo.png" 
+              src="/src/assets/pii_logo.jpg" 
               alt="PII Detection Logo" 
               className="h-10 w-auto mr-3 transition-transform duration-300 hover:scale-110"
             />

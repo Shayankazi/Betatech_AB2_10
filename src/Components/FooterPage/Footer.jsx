@@ -1,45 +1,107 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
   const navigate = useNavigate();
+  const [hoveredLink, setHoveredLink] = useState(null);
+  
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-900 text-white pt-20 pb-6 relative w-full">
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 to-emerald-500"></div>
+    <footer className="bg-gray-50 text-gray-800 pt-20 pb-6 relative w-full shadow-lg">
+      {/* Animated gradient bar */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 animate-gradient-x"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-12 mb-16">
-          <div>
-            <h3 className="text-xl font-bold mb-6 text-emerald-400">PII Detection</h3>
-            <p className="text-slate-400">Protecting your personal information with advanced AI technology.</p>
+          {/* Logo and Description Section */}
+          <div className="transform transition duration-300 hover:translate-y-1">
+            <h3 className="text-xl font-bold mb-6 text-blue-600">PII Detection</h3>
+            <p className="text-gray-600">Protecting your personal information with advanced AI technology.</p>
           </div>
           
+          {/* Quick Links Section */}
           <div>
-            <h3 className="text-xl font-bold mb-6 text-emerald-400">Quick Links</h3>
+            <h3 className="text-xl font-bold mb-6 text-blue-600">Quick Links</h3>
             <ul className="space-y-3">
-              <li><a onClick={() => navigate('/')} className="cursor-pointer text-slate-400 hover:text-white">Home</a></li>
-              <li><a onClick={() => navigate('/about')} className="cursor-pointer text-slate-400 hover:text-white">About</a></li>
-              <li><a onClick={() => navigate('/contact')} className="cursor-pointer text-slate-400 hover:text-white">Contact</a></li>
+              {[
+                { path: '/', label: 'Home' },
+                { path: '/about', label: 'About' },
+                { path: '/contact', label: 'Contact' }
+              ].map((link, index) => (
+                <li key={index} 
+                    className="transform transition duration-200 ease-in-out"
+                    style={{ 
+                      transform: hoveredLink === index ? 'translateX(8px)' : 'translateX(0)' 
+                    }}>
+                  <a onClick={() => navigate(link.path)} 
+                     onMouseEnter={() => setHoveredLink(index)}
+                     onMouseLeave={() => setHoveredLink(null)}
+                     className="cursor-pointer text-gray-600 hover:text-blue-600 transition-colors duration-200 flex items-center">
+                    <span className="opacity-0 transition-opacity duration-200 mr-1"
+                          style={{ opacity: hoveredLink === index ? 1 : 0 }}>
+                      →
+                    </span>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
           
+          {/* Support Section */}
           <div>
-            <h3 className="text-xl font-bold mb-6 text-emerald-400">Support</h3>
+            <h3 className="text-xl font-bold mb-6 text-blue-600">Support</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-slate-400 hover:text-white">Help Center</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-white">Privacy Policy</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-white">Terms of Service</a></li>
+              {[
+                { label: 'Help Center' },
+                { label: 'Privacy Policy' },
+                { label: 'Terms of Service' }
+              ].map((link, index) => (
+                <li key={index + 3} 
+                    className="transform transition duration-200 ease-in-out"
+                    style={{ 
+                      transform: hoveredLink === index + 3 ? 'translateX(8px)' : 'translateX(0)' 
+                    }}>
+                  <a href="#" 
+                     onMouseEnter={() => setHoveredLink(index + 3)}
+                     onMouseLeave={() => setHoveredLink(null)}
+                     className="text-gray-600 hover:text-blue-600 transition-colors duration-200 flex items-center">
+                    <span className="opacity-0 transition-opacity duration-200 mr-1"
+                          style={{ opacity: hoveredLink === index + 3 ? 1 : 0 }}>
+                      →
+                    </span>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
         
-        <div className="text-center pt-6 border-t border-slate-800 text-slate-500">
-          <p>&copy; {new Date().getFullYear()} PII Detection. All rights reserved.</p>
+        {/* Copyright Section */}
+        <div className="text-center pt-6 border-t border-gray-200 text-gray-500">
+          <p className="transition-opacity duration-700 hover:opacity-80">
+            &copy; {year} PII Detection. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
   );
 };
+
+// Add this to your global CSS or tailwind.config.js for the gradient animation
+// @keyframes gradient-x {
+//   0%, 100% {
+//     background-position: 0% 50%;
+//   }
+//   50% {
+//     background-position: 100% 50%;
+//   }
+// }
+// .animate-gradient-x {
+//   background-size: 200% 200%;
+//   animation: gradient-x 15s ease infinite;
+// }
 
 export default Footer;
